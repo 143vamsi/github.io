@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vamsi Krishna | AI/ML Engineer</title>
+  <!-- Tailwind with Plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif']
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'gradient': 'gradient 8s ease infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' }
+            },
+            gradient: {
+              '0%, 100%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@lucide/lucide@latest"></script>
+  <!-- Three.js for 3D Elements -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    .gradient-text {
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 300% 300%;
+      animation: gradient 8s ease infinite;
+    }
+    .card-hover-effect {
+      transition: all 0.3s ease;
+    }
+    .card-hover-effect:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-900 font-sans antialiased overflow-x-hidden">
+  <!-- Animated Background -->
+  <div id="particles-js"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center">
+          <span class="text-xl font-display font-bold gradient-text">VK</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
+          <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Skills</a>
+          <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Projects</a>
+          <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+          <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+            <i data-lucide="sun" class="w-5 h-5 text-gray-700 dark:text-gray-300"></i>
+          </button>
+        </div>
+        <button class="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+          <i data-lucide="menu" class="w-5 h-5 text-gray-700 dark:text-gray-300"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
+      <div class="mb-8 inline-block rounded-full p-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient">
+        <div class="bg-white dark:bg-gray-900 rounded-full px-4 py-1 text-sm font-medium">
+          <span class="gradient-text font-medium">Available for work</span>
+        </div>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-display font-bold mb-6">
+        <span class="gradient-text">Vamsi Krishna</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10">
+        Transforming data into intelligent solutions with <span class="font-medium text-blue-600 dark:text-blue-400">AI/ML</span> and <span class="font-medium text-purple-600 dark:text-purple-400">Data Science</span>
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+          Get In Touch
+        </a>
+        <a href="#" class="px-8 py-3 border border-gray-300 dark:border-gray-700 rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+          View Resume
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#about" class="p-2 rounded-full bg-white dark:bg-gray-800 shadow-md">
+        <i data-lucide="chevron-down" class="w-6 h-6 text-gray-700 dark:text-gray-300"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800/50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">About Me</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/3 relative">
+          <div class="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-xl relative z-10">
+            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Profile" class="w-full h-full object-cover">
+          </div>
+          <div class="absolute -bottom-6 -right-6 w-64 h-64 md:w-80 md:h-80 rounded-2xl border-2 border-blue-400/30 animate-float"></div>
+        </div>
+        <div class="md:w-2/3 mt-8 md:mt-0">
+          <h3 class="text-2xl font-display font-bold mb-6">AI/ML Engineer & Data Scientist</h3>
+          <div class="prose dark:prose-invert max-w-3xl">
+            <p class="mb-4">
+              I'm <span class="font-medium text-blue-600 dark:text-blue-400">Vamsi Krishna</span>, a Computer Science graduate specializing in Artificial Intelligence with hands-on experience in building intelligent systems that solve real-world problems.
+            </p>
+            <p class="mb-4">
+              My expertise spans <span class="font-medium">machine learning</span>, <span class="font-medium">deep learning</span>, and <span class="font-medium">data analysis</span>, with a strong foundation in Python development and cloud technologies.
+            </p>
+            <p class="mb-6">
+              I've developed cutting-edge projects like TrendPulse for influencer analytics and FinSight for investment insights, combining technical skills with business acumen.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                <span>Available for freelance</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                <span>Open to collaborations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Technical Skills</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Skill Card 1 -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover-effect">
+          <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+            <i data-lucide="code" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Python Development</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Advanced Python with expertise in Flask, FastAPI, and scripting</p>
+        </div>
+        
+        <!-- Skill Card 2 -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover-effect">
+          <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+            <i data-lucide="brain-circuit" class="w-6 h-6 text-purple-600 dark:text-purple-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Machine Learning</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Scikit-learn, TensorFlow, PyTorch for predictive modeling</p>
+        </div>
+        
+        <!-- Skill Card 3 -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover-effect">
+          <div class="w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center mb-4">
+            <i data-lucide="database" class="w-6 h-6 text-green-600 dark:text-green-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Data Engineering</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">SQL, Pandas, NumPy for data processing & analysis</p>
+        </div>
+        
+        <!-- Skill Card 4 -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md card-hover-effect">
+          <div class="w-12 h-12 rounded-lg bg-red-100 dark:bg-red-900/30 flex items-center justify-center mb-4">
+            <i data-lucide="bar-chart-2" class="w-6 h-6 text-red-600 dark:text-red-400"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Data Visualization</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">Plotly, Matplotlib, Seaborn for impactful insights</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Featured Projects</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Project 1 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl card-hover-effect">
+          <div class="relative h-48 bg-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute bottom-4 left-4">
+              <span class="bg-white/90 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Machine Learning</span>
+              <span class="bg-white/90 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">Flask</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-display font-bold mb-2">TrendPulse – Smart Influencer Picks</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">AI-powered platform to identify rising social media influencers using engagement metrics and sentiment analysis with Random Forest classification.</p>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                View Case Study
+                <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+              </a>
+              <div class="flex space-x-3">
+                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <i data-lucide="external-link" class="w-5 h-5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl card-hover-effect">
+          <div class="relative h-48 bg-gradient-to-r from-green-500 to-teal-600 overflow-hidden">
+            <div class="absolute inset-0 bg-black/20"></div>
+            <div class="absolute bottom-4 left-4">
+              <span class="bg-white/90 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Data Science</span>
+              <span class="bg-white/90 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2">Dashboard</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-display font-bold mb-2">FinSight – Smart Investment Insights</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Interactive investment dashboard for crypto & stocks with sentiment analysis, risk metrics, and predictive analytics.</p>
+            <div class="flex justify-between items-center">
+              <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                View Case Study
+                <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1"></i>
+              </a>
+              <div class="flex space-x-3">
+                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <i data-lucide="github" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <i data-lucide="external-link" class="w-5 h-5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Get In Touch</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+      </div>
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <div class="bg-gradient-to-br from-blue-600 to-purple-600 p-8 text-white">
+              <h3 class="text-xl font-display font-bold mb-4">Contact Information</h3>
+              <p class="mb-6">Feel free to reach out for collaborations or just to say hello!</p>
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <i data-lucide="mail" class="w-5 h-5 mr-3"></i>
+                  <span>bandalakuntavamsikrishna@gmail.com</span>
+                </div>
+                <div class="flex items-center">
+                  <i data-lucide="linkedin" class="w-5 h-5 mr-3"></i>
+                  <span>linkedin.com/in/bandala-kunta-vamsi-krishna</span>
+                </div>
+                <div class="flex items-center">
+                  <i data-lucide="github" class="w-5 h-5 mr-3"></i>
+                  <span>github.com/your-github</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-8">
+              <form class="space-y-4">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+                  <input type="text" id="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white">
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                  <input type="email" id="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white">
+                </div>
+                <div>
+                  <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
+                  <textarea id="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-[1.01]">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <span class="text-xl font-display font-bold gradient-text">Vamsi Krishna</span>
+          <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">AI/ML Engineer & Data Scientist</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+            <i data-lucide="github" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+            <i data-lucide="twitter" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+        © 2025 Vamsi Krishna. All rights reserved. Built with ❤️ and modern web technologies.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Dark mode toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.querySelector('[data-lucide="sun"]');
+    const moonIcon = document.querySelector('[data-lucide="moon"]');
+    
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      sunIcon.classList.remove('hidden');
+      moonIcon.classList.add('hidden');
+    } else {
+      document.documentElement.classList.remove('dark');
+      sunIcon.classList.add('hidden');
+      moonIcon.classList.remove('hidden');
+    }
+    
+    themeToggle.addEventListener('click', function() {
+      const isDark = document.documentElement.classList.contains('dark');
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('color-theme', isDark ? 'light' : 'dark');
+      sunIcon.classList.toggle('hidden');
+      moonIcon.classList.toggle('hidden');
+    });
+    
+    // Particles.js background
+    document.addEventListener('DOMContentLoaded', function() {
+      // Only load particles on desktop
+      if (window.innerWidth > 768) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+        script.onload = function() {
+          particlesJS('particles-js', {
+            "particles": {
+              "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+              "color": { "value": "#3b82f6" },
+              "shape": { "type": "circle" },
+              "opacity": { "value": 0.5, "random": true },
+              "size": { "value": 3, "random": true },
+              "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.4, "width": 1 },
+              "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+              "events": { "onhover": { "enable": true, "mode": "grab" } }
+            }
+          });
+        };
+        document.body.appendChild(script);
+      }
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Animate elements when they come into view
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        elements.forEach(element => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.3;
+          if (elementPosition < screenPosition) {
+            element.classList.add('animated');
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll(); // Run once on load
+    });
+  </script>
+</body>
+</html>
